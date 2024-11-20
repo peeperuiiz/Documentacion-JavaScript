@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos Fetch</title>
+</head>
+<body>
+    
+    <script>
+        const url = "https://jsonplaceholder.typicode.com/posts";       //CREAMOS VARIABLE CON UN JSON EN EL SERVIDOR
+        fetch(url)                                                      //FETCH ES UNA PROMESA, NO HACE FALATA DECLARAR UNA COMO TAL
+        .then(res => res.json())                                        //HACEMOS .then PERO JAVASCRIPT NO ENTIENDE JSON, POR TANTO LO "PARSEAMOS" Y DEVUELVE DE NUEVO UNA PROMESA
+        .then(datos => {                                                //AHORA YA SI QUE PODEMOS MOSTRAR EL JSON Y SUS DATOS
+            datos.forEach(dato => {
+                document.write(`${dato.title}<br>`);
+            });
+        });                           
+    </script>
+</body>
+</html>
