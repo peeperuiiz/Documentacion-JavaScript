@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bases de Datos</title>
+    <style>
+        input, textarea{
+            display: block;
+            margin: 20px 0;
+            padding: 10px;
+            min-width: 30%;
+        }
+
+        input[type=submit]{
+            min-width: 20%;
+            background-color: turquoise;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Curso diseño web</h1>
+    <form action="">
+        <input type="text" name="titulo" placeholder="Título del curso">
+        <textarea name="texto" placeholder="Descripción del curso"></textarea>
+        <input type="text" name="img" placeholder="Nombre de la imagen">
+        <input type="submit" value="Insertar Datos">
+    </form>
+
+    <button>Cargar</button>
+    <ul></ul>
+
+    <script>
+        const btt = document.querySelector("button");
+        const url = "datos.php";
+        const ul = document.querySelector("ul");
+        const form = document.forms[0];
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+        });
+
+        btt.addEventListener("click", () =>{
+            ul.innerHTML = "";
+
+            fetch(url)
+            .then(respuesta => respuesta.json())
+            .then(datos => {
+                datos.forEach(dato => {
+                    ul.innerHTML += `
+                        <li>${dato.titulo}</li>
+                    `; 
+                });
+            });
+        });
+    </script>
+</body>
+</html>
