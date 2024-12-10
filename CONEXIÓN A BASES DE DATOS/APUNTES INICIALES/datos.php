@@ -7,4 +7,5 @@
     $resultados = $sentencia->fetchAll(PDO::FETCH_ASSOC);
 
     echo json_encode($resultados);
+    
 ?>
