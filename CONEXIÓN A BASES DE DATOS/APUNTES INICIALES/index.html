@@ -44,6 +44,10 @@
         });
 
         btt.addEventListener("click", () =>{
+            cargarDatos();
+        });
+
+        function cargarDatos(){
             ul.innerHTML = "";
 
             fetch(url)
@@ -57,13 +61,22 @@
                 });
                 
             });
-        });
+        }
 
         function insertarDatos(formData){
             const url2 = "insertar.php";
+            
             fetch(url2, {
-                method:"POST",
+                method:'POST',
+                headers:{
+                    'Authorization':'Bearer 0123456789'
+                },
                 body: formData
+            }).then(respuesta => respuesta.json())
+            .then(datos => {
+                if(datos == "true"){
+                    cargarDatos();
+                }
             });
         }
     </script>
