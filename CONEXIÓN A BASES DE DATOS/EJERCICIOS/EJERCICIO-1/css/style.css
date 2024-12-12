@@ -1,0 +1,65 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body{
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: "Roboto Slab", serif;
+    color: var(--azulOscuro);
+}
+
+:root{
+    --azulOscuro: #1b2631;
+    --grisOscuro: #151717;
+    --azulClaro: rgb(31, 125, 168);
+}
+
+header#header{
+    nav{
+        a.navbar-brand{
+            font-size: 2rem;
+            font-family: "Roboto Slab";
+            font-weight: 800;
+
+            span{
+                color: var(--azulClaro);
+            }
+        }
+
+        .collapse{
+            a{
+                font-size: 1rem;
+
+                &:hover{
+                    color: var(--azulClaro);
+                }
+            }
+        }
+
+        button.navbar-toggler{
+            border: none !important;
+        }
+    }
+}
+
+section#buscador{
+    background: url(../img/pexels-andrea-piacquadio-3782774.jpg) no-repeat center center / cover fixed;
+    background-attachment: fixed;
+
+    .row{
+        min-height: 40vh;
+        align-items: center;
+    }
+}
+
+section#cursos{
+    min-height: 100vh;
+    padding: 50px 0;
+
+    .row{
+        min-height: 20vh;
+    }
+}
